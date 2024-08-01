@@ -34,16 +34,16 @@ Eigen::Matrix4f get_projection_matrix(float eye_fov, float aspect_ratio, float z
     Eigen::Matrix4f projection;
     
     /*Notice: In the assignment 2, the task define Z as our correct camera direction, then we need to modify the matrix*/
-    float n = zNear; 
-    float f = zFar;
+    float n = - zNear; 
+    float f = - zFar;
     Eigen::Matrix4f perspect_to_ortho;
     perspect_to_ortho << n, 0, 0, 0,
         0, n, 0, 0,
         0, 0, n + f, -n * f,
         0, 0, 1, 0;
-
-    /*Notice: At this part, fov given as arc unit. Also abs() is really important, donnot forget it*/
-    float half_height = - tan(eye_fov / 2.0f) * abs(n); /*why - and not rad unit?*/
+    float angle_rad = eye_fov * acos(-1) / 180.f;
+    /*Notice: At this part , fov given as arc unit. Also abs() is really important, donnot forget it*/
+    float half_height = tan(angle_rad / 2.0f) * abs(n); /*need use rad unit*/
     float half_width = aspect_ratio * half_height; 
     Eigen::Matrix4f ortho_scale;
     ortho_scale << 1/half_width, 0, 0, 0,
@@ -55,9 +55,14 @@ Eigen::Matrix4f get_projection_matrix(float eye_fov, float aspect_ratio, float z
                   0, 1, 0, 0,
                   0, 0, 1, - (n + f) / 2,
                   0, 0, 0, 1;
-                  
+    /* multiply mirror matrix, in our homework framework, we define Z as the camera direction */
+    Eigen::Matrix4f mirror;
+    mirror << 1, 0, 0, 0,
+                  0, 1, 0, 0,
+                  0, 0, -1, 0,
+                  0, 0, 0, 1;    
     /*perpective to ortho first -> then translate to center -> then transform scale*/
-    projection = ortho_scale * move_trans * perspect_to_ortho;
+    projection = mirror * ortho_scale * move_trans * perspect_to_ortho;
     return projection;
 }
 

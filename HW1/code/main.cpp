@@ -35,6 +35,30 @@ Eigen::Matrix4f get_model_matrix(float rotation_angle)
     return model;
 }
 
+Eigen::Matrix4f get_random_axis_model_matrix(float rotation_angle, Eigen::Vector3f axis)
+{
+    Eigen::Matrix4f model = Eigen::Matrix4f::Identity();
+
+    // TODO: Implement this function
+    // Create the model matrix for rotating the triangle around the Z axis.
+    // Then return it.
+    float angle_arc = rotation_angle * acos(-1) / 180;
+    Eigen::Matrix3f N;
+    N << 0, -axis.z(), axis.y(),
+         axis.z(), 0, -axis.x(),
+         -axis.y(), axis.x(), 0;
+
+    Eigen::Matrix3f rotation_matrix = cos(angle_arc) * Eigen::Matrix3f::Identity() + (1 - cos(angle_arc))*axis * axis.transpose() + sin(angle_arc) * N;
+
+    
+    model << rotation_matrix(0, 0), rotation_matrix(0, 1), rotation_matrix(0, 2), 0,
+        rotation_matrix(1, 0), rotation_matrix(1, 1), rotation_matrix(1, 2), 0,
+        rotation_matrix(2, 0), rotation_matrix(2, 1), rotation_matrix(2, 2), 0,
+        0, 0, 0, 1;
+
+    return model;
+}
+
 Eigen::Matrix4f get_projection_matrix(float eye_fov, float aspect_ratio,
                                       float zNear, float zFar)
 {
@@ -56,7 +80,8 @@ Eigen::Matrix4f get_projection_matrix(float eye_fov, float aspect_ratio,
         0, 0, 1, 0;
 
     /*Notice: At this part, fov given as arc unit. Also abs() is really important, donnot forget it*/
-    float half_height = tan(eye_fov / 2.0f) * abs(n);
+    float angle_rad = eye_fov * acos(-1) / 180.f;
+    float half_height = tan(angle_rad / 2.0f) * abs(n);
     float half_width = aspect_ratio * half_height; 
     Eigen::Matrix4f ortho_scale;
     ortho_scale << 1/half_width, 0, 0, 0,
@@ -107,7 +132,7 @@ int main(int argc, const char** argv)
     if (command_line) {
         r.clear(rst::Buffers::Color | rst::Buffers::Depth);
 
-        r.set_model(get_model_matrix(angle));
+        r.set_model(get_random_axis_model_matrix(angle, Eigen::Vector3f(1.0f,1.0f,1.0f)));
         r.set_view(get_view_matrix(eye_pos));
         r.set_projection(get_projection_matrix(45, 1, 0.1, 50));
 
@@ -123,7 +148,7 @@ int main(int argc, const char** argv)
     while (key != 27) {
         r.clear(rst::Buffers::Color | rst::Buffers::Depth);
 
-        r.set_model(get_model_matrix(angle));
+        r.set_model(get_random_axis_model_matrix(angle, Eigen::Vector3f(1.0f,1.0f,1.0f)));
         r.set_view(get_view_matrix(eye_pos));
         r.set_projection(get_projection_matrix(45, 1, 0.1, 50));
 
