@@ -9,14 +9,29 @@
 ### HW0
 
 - Basic Eigen Operations and implement a homogeneous transformation matrix, incluing rotation and translation.
-![result](./HW0/0.png)
+- Transform result
+  ![result](./HW0/0.png)
 
 ### HW1
 
-- Implement model transformation, and perspective transformation process.
-![result](./HW1/1.png)
+- Implement model transformation(on random axis), and perspective transformation process.
+- Rotate on the axis (0,0,1)
+    <img src="./HW1/z.png" width="40%"><img src="./HW1/z_45.png" width="40%">
+- Rotate on the axis (1,1,1)
+    <img src="./HW1/random_15.png" width="40%"><img src="./HW1/random_20.png" width="40%">
 
 ### HW2
 
 - Implement rasterization process and modify some settings in projection transformation.
-![result](./HW2/3.png)
+- Original result and Anti-aliasing result
+    <img src="./HW2/ori_result.png" width="40%"><img src="./HW2/ori_result.png" width="40%">
+
+## HW3
+
+- Implement shading process, including blinn-phong, texture, bump, displacement fragment shaders. Also implement bilinear method to get texture color.
+- Original result and Bilinear result
+    <img src="./HW3/Image/normal.png" width="40%"><img src="./HW3/Image/normal_bilinear.png" width="40%">
+    <img src="./HW3/Image/texture.png" width="40%"><img src="./HW3/Image/texture_bilinear.png" width="40%">
+    <img src="./HW3/Image/phong.png" width="40%"><img src="./HW3/Image/phong_bilinear.png" width="40%">
+    <img src="./HW3/Image/bump.png" width="40%"><img src="./HW3/Image/bump.png" width="40%">
+    <img src="./HW3/Image/displacement.png" width="40%"><img src="./HW3/Image/displacement_bilinear.png" width="40%">
