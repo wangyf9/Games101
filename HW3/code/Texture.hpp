@@ -33,10 +33,10 @@ public:
         float denorm_u = u * width;
         float denorm_v = (1 - v) * height;
         float u0 = floor(denorm_u), v0 = floor(denorm_v), u1 = ceil(denorm_u), v1 = ceil(denorm_v);
-        auto color00 = image_data.at<cv::Vec3b>(u0, v0);
-        auto color01 = image_data.at<cv::Vec3b>(u0, v1);
-        auto color10 = image_data.at<cv::Vec3b>(u1, v0);
-        auto color11 = image_data.at<cv::Vec3b>(u1, v1);
+        auto color00 = image_data.at<cv::Vec3b>(v0, u0);
+        auto color01 = image_data.at<cv::Vec3b>(v1, u0);
+        auto color10 = image_data.at<cv::Vec3b>(v0, u1);
+        auto color11 = image_data.at<cv::Vec3b>(v1, u1);
         float s = (denorm_u - u0) / (u1 - u0);
         float t = (denorm_v - v0) / (v1 - v0);
         auto colordown = color00 + s * (color10 - color00);
