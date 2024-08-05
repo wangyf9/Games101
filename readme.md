@@ -46,11 +46,11 @@
 - Implement de Casteljau algorithm to draw bezier curve and also an anti-version.
 - Original result and anti-aliasing result
 
-    <img src="./HW4/image/original_bezier.png" width="40%"><img src="./HW3/Image/filter_bezier.png" width="40%">
+    <img src="./HW4/image/original_bezier.png" width="40%"><img src="./HW4/image/filter_bezier.png" width="40%">
 
 ## HW5
 
 - Implement Ray generating process and Moller-Trumbore algorithm to determine whether ray intersect with triangle.
 - Ray tracing result
 
-    <img src="./HW5/binary.ppm" width="80%">
+    <img src="./HW5/Image/result.png" width="80%">
