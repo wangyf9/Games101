@@ -50,7 +50,14 @@
 
 ## HW5
 
-- Implement Ray generating process and Moller-Trumbore algorithm to determine whether ray intersect with triangle.
+- Implement original ray tracing process, including Ray generating process and Moller-Trumbore algorithm to determine whether ray intersect with triangle.
 - Ray tracing result
 
     <img src="./HW5/Image/result.png" width="80%">
+
+## HW6
+
+- Implement modified ray tracing process, including AABB and BVH method to accelerate.
+- Ray tracing result
+
+    <img src="./HW6/Image/BVH_result.png" width="80%">

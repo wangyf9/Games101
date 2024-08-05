@@ -119,17 +119,20 @@ Intersection BVHAccel::getIntersection(BVHBuildNode* node, const Ray& ray) const
     /* recursive */
     Intersection leftinter = getIntersection(node->left, ray);
     Intersection rightinter = getIntersection(node->right, ray);
-    if(leftinter.happened && rightinter.happened){
+    if(leftinter.happened && rightinter.happened){/* both find closer one*/
         if(leftinter.distance < rightinter.distance){
             return leftinter;
         }else{
             return rightinter;
         }
-    }else if(leftinter.happened){
+    }
+    else if(leftinter.happened){ /* just left */
         return leftinter;
-    }else if(rightinter.happened){
+    }
+    else if(rightinter.happened){/* just right */
         return rightinter;
-    }else{
+    }
+    else{ /* none */
         return interset;
     }
 }

@@ -103,7 +103,7 @@ inline bool Bounds3::IntersectP(const Ray& ray, const Vector3f& invDir,
     float t_xmax = (pMax.x - ray.origin.x)* invDir.x;
     float t_ymax = (pMax.y - ray.origin.y)* invDir.y;
     float t_zmax = (pMax.z - ray.origin.z)* invDir.z;
-    /* second get enter and exit t*/
+    /* deal with enter direction, if negative, should inverse the value */
     if(!dirIsNeg[0]){
         float tmp = t_xmax;
         t_xmax = t_xmin;
@@ -119,6 +119,7 @@ inline bool Bounds3::IntersectP(const Ray& ray, const Vector3f& invDir,
         t_zmax = t_zmin;
         t_zmin = tmp;
     }
+    /* second get enter and exit t*/
     float t_enter = std::max(t_xmin, std::max(t_ymin, t_zmin));
     float t_exit = std::min(t_xmax, std::min(t_ymax, t_zmax));
     /* third return determine result*/
