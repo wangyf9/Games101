@@ -40,3 +40,10 @@
     <img src="./HW3/Image/phong.png" width="40%"><img src="./HW3/Image/phong_bilinear.png" width="40%">
     <img src="./HW3/Image/bump.png" width="40%"><img src="./HW3/Image/bump.png" width="40%">
     <img src="./HW3/Image/displacement.png" width="40%"><img src="./HW3/Image/displacement_bilinear.png" width="40%">
+
+## HW5
+
+- Implement de Casteljau algorithm to draw bezier curve and also an anti-version.
+- Original result and anti-aliasing result
+
+    <img src="./HW4/image/original_bezier.png" width="40%"><img src="./HW3/Image/filter_bezier.png" width="40%">
