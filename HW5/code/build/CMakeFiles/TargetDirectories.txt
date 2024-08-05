@@ -1,0 +1,3 @@
+/mnt/e/Games101/HW5/code/build/CMakeFiles/RayTracing.dir
+/mnt/e/Games101/HW5/code/build/CMakeFiles/edit_cache.dir
+/mnt/e/Games101/HW5/code/build/CMakeFiles/rebuild_cache.dir
