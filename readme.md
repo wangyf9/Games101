@@ -35,7 +35,7 @@
 - Implement shading process, including blinn-phong, texture, bump, displacement fragment shaders. Also implement bilinear method to get texture color.
 - Original result and Bilinear result
 
-    <img src="./HW3/Image/normal.png" width="40%"><img src="./HW3/Image/normal_bilinear.png" width="40%">
+    <img src="./HW3/Image/normal.png" width="40%"><img src="./HW3/Image/normal_bilinear_new.png" width="40%">
     <img src="./HW3/Image/texture.png" width="40%"><img src="./HW3/Image/texture_bilinear.png" width="40%">
     <img src="./HW3/Image/phong.png" width="40%"><img src="./HW3/Image/phong_bilinear.png" width="40%">
     <img src="./HW3/Image/bump.png" width="40%"><img src="./HW3/Image/bump.png" width="40%">
