@@ -6,29 +6,44 @@
 
 ## HW
 
+### How to run the code
+
+First compile the code
+
+```bash
+cd code
+mkdir build
+cd build
+cmake ..
+make
+```
+
+Then you can use specific instructions to run the code, getting the result
+
 ### HW0
 
 - Basic Eigen Operations and implement a homogeneous transformation matrix, incluing rotation and translation.
 - Transform result
 
-  ![result](./HW0/0.png)
+  ![result](./HW0/Image/0.png)
 
 ### HW1
 
 - Implement model transformation(on random axis), and perspective transformation process.
 - Rotate on the axis (0,0,1)
 
-    <img src="./HW1/z.png" width="40%"><img src="./HW1/z_45.png" width="40%">
+    <img src="./HW1/Image/z.png" width="40%"><img src="./HW1/Image/z_45.png" width="40%">
 - Rotate on the axis (1,1,1)
 
-    <img src="./HW1/random_15.png" width="40%"><img src="./HW1/random_20.png" width="40%">
+    <img src="./HW1/Image/random_15.png" width="40%"><img src="./HW1/Image/random_20.png" width="40%">
 
 ### HW2
 
 - Implement rasterization process and modify some settings in projection transformation.
 - Original result and Anti-aliasing result
 
-    <img src="./HW2/ori_result.png" width="40%"><img src="./HW2/ori_result.png" width="40%">
+    <!-- <img src="./HW2/ori_result.png" width="40%"> -->
+    <img src="./HW2/Image/ori_result.png" width="80%">
 
 ## HW3
 
@@ -46,7 +61,7 @@
 - Implement de Casteljau algorithm to draw bezier curve and also an anti-aliasing version.
 - Original result and anti-aliasing result
 
-    <img src="./HW4/image/original_bezier.png" width="40%"><img src="./HW4/image/filter_bezier.png" width="40%">
+    <img src="./HW4/Image/original_bezier.png" width="40%"><img src="./HW4/Image/filter_bezier.png" width="40%">
 
 ## HW5
 

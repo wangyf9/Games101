@@ -1,3 +1,0 @@
-/mnt/e/CG/HW1/code/build/CMakeFiles/Rasterizer.dir
-/mnt/e/CG/HW1/code/build/CMakeFiles/edit_cache.dir
-/mnt/e/CG/HW1/code/build/CMakeFiles/rebuild_cache.dir
