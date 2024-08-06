@@ -43,21 +43,28 @@
 
 ## HW4
 
-- Implement de Casteljau algorithm to draw bezier curve and also an anti-version.
+- Implement de Casteljau algorithm to draw bezier curve and also an anti-aliasing version.
 - Original result and anti-aliasing result
 
     <img src="./HW4/image/original_bezier.png" width="40%"><img src="./HW4/image/filter_bezier.png" width="40%">
 
 ## HW5
 
-- Implement original ray tracing process, including Ray generating process and Moller-Trumbore algorithm to determine whether ray intersect with triangle.
+- Implement original whitted-style ray tracing process, including Ray generating process and Moller-Trumbore algorithm to determine whether ray intersect with triangle.
 - Ray tracing result
 
     <img src="./HW5/Image/result.png" width="80%">
 
 ## HW6
 
-- Implement modified ray tracing process, including AABB and BVH method to accelerate.
-- Ray tracing result
+- Implement modified whitted-style ray tracing process, including AABB and BVH method to accelerate.
+- Accelerated Ray tracing result
+
+    <img src="./HW6/Image/BVH_result.png" width="80%">
+
+## HW7
+
+- Implement path tracing process.
+- Accelerated Ray tracing result
 
     <img src="./HW6/Image/BVH_result.png" width="80%">

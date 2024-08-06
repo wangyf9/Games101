@@ -5,7 +5,8 @@
 #include <fstream>
 #include "Scene.hpp"
 #include "Renderer.hpp"
-
+#include "omp.h"
+#include <thread>
 
 inline float deg2rad(const float& deg) { return deg * M_PI / 180.0; }
 
@@ -17,29 +18,37 @@ const float EPSILON = 0.00001;
 void Renderer::Render(const Scene& scene)
 {
     std::vector<Vector3f> framebuffer(scene.width * scene.height);
-
+    omp_set_num_threads(4);
     float scale = tan(deg2rad(scene.fov * 0.5));
     float imageAspectRatio = scene.width / (float)scene.height;
     Vector3f eye_pos(278, 273, -800);
     int m = 0;
 
     // change the spp value to change sample ammount
-    int spp = 16;
+    int spp = 81;
     std::cout << "SPP: " << spp << "\n";
+    #pragma omp parallel for schedule(dynamic)
+    // for (uint32_t h = 0; h < scene.height*scene.width - 1; h++){
     for (uint32_t j = 0; j < scene.height; ++j) {
         for (uint32_t i = 0; i < scene.width; ++i) {
             // generate primary ray direction
+            // uint32_t i = h % scene.width;
+            // uint32_t j = h / scene.width;
+            uint32_t m = j*scene.width + i;
             float x = (2 * (i + 0.5) / (float)scene.width - 1) *
-                      imageAspectRatio * scale;
+                    imageAspectRatio * scale;
             float y = (1 - 2 * (j + 0.5) / (float)scene.height) * scale;
 
             Vector3f dir = normalize(Vector3f(-x, y, 1));
             for (int k = 0; k < spp; k++){
                 framebuffer[m] += scene.castRay(Ray(eye_pos, dir), 0) / spp;  
             }
-            m++;
+            // m++;
         }
-        UpdateProgress(j / (float)scene.height);
+        #pragma omp critical
+        {
+            UpdateProgress(j / (float)scene.height);
+        }
     }
     UpdateProgress(1.f);
 
