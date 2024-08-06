@@ -64,7 +64,7 @@
 
 ## HW7
 
-- Implement path tracing process.
-- Accelerated Ray tracing result
+- Implement path tracing process with multi-thread accelerating.
+- different ssp result
 
-    <img src="./HW6/Image/BVH_result.png" width="80%">
+    <img src="./HW7/Image/ssp_16.png" width="40%"><img src="./HW7/Image/ssp_81.png" width="40%">
