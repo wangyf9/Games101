@@ -3,8 +3,7 @@
 //
 
 #include "Scene.hpp"
-#include "omp.h"
-#include <thread>
+
 void Scene::buildBVH() {
     printf(" - Generating BVH...\n\n");
     this->bvh = new BVHAccel(objects, 1, BVHAccel::SplitMethod::NAIVE);
